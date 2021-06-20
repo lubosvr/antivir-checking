@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+spring:
+  jpa:
+    open-in-view: false
+  datasource:
+    url: "jdbc:mysql://localhost:3307/files?characterEncoding=UTF-8&serverTimezone=Europe/Berlin"
+    username: "file_user"
+    password: "file_password"

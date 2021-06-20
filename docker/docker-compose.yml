@@ -1,0 +1,27 @@
+version: '2'
+services:
+    db:
+      image: mysql:5.6.35
+      container_name: partners-mysql
+      hostname: db
+      ports:
+        - "3306:3306"
+        - "3307:3306"
+      environment:
+        MYSQL_ROOT_PASSWORD: partners
+      volumes:
+        - ./docker/data:/docker-entrypoint-initdb.d
+      command: --lower-case-table-names=1
+    clamav:
+      image: mkodockx/docker-clamav
+      container_name: partners-clamav
+      hostname: clamav
+      ports:
+        - "3310:3310"
+    rabbitmq:
+      image: rabbitmq:3-management
+      container_name: partners-rabbitmq
+      hostname: rabbitmq
+      ports:
+        - "5672:5672"
+        - "15672:15672"
